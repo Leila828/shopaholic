@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+<h1>{% trans "Upload new image" %}</h1>
+{% include "user_media/partials/ajax_usermediaimage_form.html" %}
+{% endblock %}

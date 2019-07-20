@@ -1,0 +1,49 @@
+{% extends 'dashboard/layout.html' %}
+
+{% load i18n %}
+
+{% block title %}
+    {% trans "Supprimer"  %} | {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} create-page{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'Service:category_list' %}">{% trans "categorie" %}</a>
+        </li>
+        <li>
+            <a href="#">{{ category.name }}</a>
+        </li>
+        <li class="active">{% trans "Supprimer"  %}</li>
+    </ul>
+{% endblock %}
+
+{% block headertext %}{% trans "Supprimer la categorie"  %} {{ category.name }}{% endblock %}
+
+{% block dashboard_content %}
+    <div class="table-header">
+        <h2>{{ title }}</h2>
+    </div>
+    <form method="post" class="well">
+        {% csrf_token %}
+
+        <p>
+
+                {% blocktrans with title=category.name %}
+                    Etes-vous sûr de vouloir supprimer la catégorie <strong>{{ title }}</strong>
+                {% endblocktrans %}
+
+        </p>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-danger" data-loading-text="{% trans 'Deleting...' %}">{% trans "Delete" %}</button>
+            {% trans "or" %}
+            <a href="{% url 'Service:category_list' %}">{% trans "cancel" %}</a>
+        </div>
+    </form>
+{% endblock %}

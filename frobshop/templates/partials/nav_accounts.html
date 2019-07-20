@@ -1,0 +1,119 @@
+
+{% load i18n %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/responsive.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/main_styles.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/bootstrap4/bootstrap.min.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.carousel.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/animate.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/slick-1.8.0/slick.css" %}">
+
+<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col d-flex flex-row">
+<<<<<<< HEAD
+						<div class="top_bar_contact_item" ><div class="top_bar_icon"><img src="{% static "moi/images/phone.png"%}" alt=""></div>06 69 78 54 12</div>
+						<div class="top_bar_contact_item"  ><div class="top_bar_icon"><img src="{% static "moi/images/mail.png"%}" alt=""></div><a href="mailto:Shopaholic.shop118@gmail.com">Shopaholic@gmail.com</a></div>
+						<div class="top_bar_content ml-auto">
+							<div class="top_bar_user">
+                                {% if user.is_authenticated %}
+                                      <span class="fa fa-heart-o"></span>&nbsp;
+                                      <div>Bienvenue : {{ user.get_full_name|default:request.user.email }}</div>
+                                      <div class="user_icon"><img src="{% static "moi/images/user.svg"%}" alt=""></div>
+                                      <div><a href="{% url 'customer:summary' %}">Compte</a></div>&nbsp;
+                                      {% if user.is_staff or perms.partner.dashboard_access %}
+                                          &nbsp;&nbsp;
+=======
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{% static "moi/images/phone.png"%}" alt=""></div>+213 69 78 54 12</div>
+						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{% static "moi/images/mail.png"%}" alt=""></div><a href="mailto:Shopaholic.shop118@gmail.com">Shopaholic.shop118@gmail.com</a></div>
+						<div class="top_bar_content ml-auto">
+							<div class="top_bar_user">
+                                {% if user.is_authenticated %}
+                                      <div class="user_icon"><img src="{% static "moi/images/user.svg"%}" alt=""></div>
+                                      <div><a href="{% url 'customer:summary' %}">Compte</a></div>&nbsp;
+                                      {% if user.is_staff or perms.partner.dashboard_access %}
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+                                          <div class="user_icon"><img src="{% static "moi/images/ordinateuur.png"%}" alt=""></div>
+                                           <div><a href="{% url 'dashboard:index' %}">Tableau de bord</a></div>&nbsp;&nbsp;&nbsp;
+                                          {% else %}
+                                          {% if user.email == "admin.service@gmail.com" %}
+                                              <div class="user_icon"><img src="{% static "moi/images/ordinateuur.png"%}" alt=""></div>
+                                              <div><a href="{% url 'Service:service_list' %}">Tableau de bord</a></div>&nbsp;
+                                              {% else %}
+<<<<<<< HEAD
+                                            <span class="fa fa-store"></span>&nbsp;&nbsp;
+=======
+
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+                                          <div><a href="{% url 'form:description' %}">Créer votre Boutique</a></div>&nbsp;
+                                              {% endif %}
+                                      {% endif %}
+                                    &nbsp;&nbsp;
+<<<<<<< HEAD
+                                    <span class="fa fa-sign-out"></span>&nbsp;&nbsp;
+                                     <div><a href="{% url 'customer:logout' %}">Déconnexion</a></div>
+                                  {% else %}
+                                      <div class="user_icon"><img src="{% static "moi/images/user.svg"%}" alt=""></div>
+
+								      <div><a href="{% url 'customer:login' %}">Inscription / Connexion</a></div>
+=======
+                                    <div class="user_icon"><img src="{% static "moi/images/user.svg"%}" alt=""></div>
+                                     <div><a href="{% url 'customer:logout' %}">Déconnexion</a></div>
+                                  {% else %}
+                                      <div class="user_icon"><img src="{% static "moi/images/user.svg"%}" alt=""></div>
+                                      <div><a href="{% url 'customer:login' %}">Inscription</a></div>
+								      <div><a href="{% url 'customer:login' %}">Connexion</a></div>
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+                                {% endif %}
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% comment %}
+<div id="top_page" class="navbar navbar-default navbar-static-top accounts">
+    {# This is used in mobile view #}
+    <div class="navbar-header">
+        <a class="btn btn-default navbar-toggle collapsed" data-toggle="collapse" data-target=".account-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+    </div>
+    <div class="navbar-collapse account-collapse collapse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav ">
+                {% if user.is_authenticated %}
+                {% block nav_account_navbar_authenticated %}
+                     <li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>
+                        {% if num_unread_notifications > 0 %}
+                            {# If user has new notifications - we change account link to go to inbox #}
+                            <a href="{% url 'customer:notifications-inbox' %}">
+                                <i class="icon-user"></i>
+                                {% trans "Account" %}
+                                <span class="label label-warning">{{ num_unread_notifications }}</span>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a>
+                        {% endif %}
+                    </li>
+                    {% if user.is_staff or perms.partner.dashboard_access %}
+
+                        <li><a href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i> {% trans "Dashboard" %}</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'form:form' %}"><i class="icon-map-marker"></i> {% trans "Créer Votre Boutique" %}</a></li>
+                    <li><a id="logout_link" href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Logout" %}</a></li>
+                {% endblock %}
+                {% else %}
+                    <li><a id="login_link" href="{% url 'customer:login' %}"><i class="icon-signin"></i> {% trans "Login or register" %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endcomment %}

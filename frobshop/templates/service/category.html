@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% load sorl_thumbnail %}
+{% load reviews_tags %}
+{% load i18n %}
+{% load display_tags %}
+{% load basket_tags %}
+{% load category_tags %}
+{% load product_tags %}
+{% load bootstrap %}
+
+
+{% block headertext %}
+{{ category.name }}
+{% endblock %}
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+        </li>
+         <li>
+            <a href="{% url 'service:index' %}">{% trans "Service" %}</a>
+        </li>
+         <li>
+            <a href="{% url 'service:categories-list' %}">{% trans "Catégories Des Service" %}</a>
+        </li>
+        <li class="active">{{ category.name }}</li>
+    </ul>
+{% endblock breadcrumbs %}
+
+
+{% block content %}
+{% if category.get_services.count > 0 %}
+    <section>
+            <div>
+                <ol class="row">
+                     {% for service in category.get_services %}
+                             <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                 <article class="product_pod">
+                                      {% block product_image %}
+                                             <div class="image_container">
+                                                 <a href="{% url 'service:detail' service.id %}"><img src="{{ service.primary_image.image.url }}" alt="{{ service.name }}" class="thumbnail" width="200px" height="200px"/></a>
+                                             </div>
+                                      {% endblock %}
+                                      {% block product_review %}
+                                              {% iffeature "reviews" %}
+                                                  <p class="star-rating {{ service.rating|as_stars }}">
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                  </p>
+                                              {% endiffeature %}
+                                      {% endblock %}
+                                      {% block product_title %}
+                                            <h3><a href="{% url 'service:detail' service.id %}" title="{{ service.name }}">{{service.name|truncatewords:4 }}</a></h3>
+                                      {% endblock %}
+                                       {% block product_price %}
+                                             <div class="product_price">
+                                                 <p class="price_color"> {{ service.email }}</p>
+                                                 <p class="price_color"> {{ service.tel }}</p>
+                                                 <a href="mailto:{{ service.email }}"><button type="submit" class="btn btn-primary btn-block" data-loading-text="{% trans 'Contact...' %}">{% trans "Contacter" %}</button></a>
+                                             </div>
+                                       {% endblock %}
+
+                                 </article>
+                             </li>
+                     {% endfor %}
+                </ol>
+                {% include "partials/pagination.html" %}
+            </div>
+    </section>
+{% else %}
+    <p>Aucun service disponible.</p>
+{% endif %}
+
+{% endblock %}

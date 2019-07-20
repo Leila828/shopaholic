@@ -1,0 +1,243 @@
+{% extends "layout_2_col.html" %}
+{% load sorl_thumbnail %}
+{% load basket_tags %}
+{% load category_tags %}
+{% load product_tags %}
+{% load reviews_tags %}
+{% load display_tags %}
+{% load i18n %}
+{% load static %}
+ <link href="{% static "moi/daily/css/font-awesome.css"  %}"rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href=" {%  static "moi/daily/css/bootstrap.css" %}" rel="stylesheet">
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href=" {%  static "moi/daily/css/jquery.smartmenus.bootstrap.css" %}" rel="stylesheet">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static  "moi/daily/css/jquery.simpleLens.css" %}">
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/slick.css" %}">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/nouislider.css" %}">
+    <!-- Theme color -->
+    <link id="switcher" href=" {%  static "moi/daily/css/theme-color/default-theme.css" %}" rel="stylesheet">
+    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
+    <!-- Top Slider CSS -->
+    <link href=" {%  static "moi/daily/css/sequence-theme.modern-slide-in.css"  %}" rel="stylesheet" media="all">
+
+    <!-- Main style sheet -->
+    <link href=" {%  static "moi/daily/css/style.css" %}" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src={% static "moi/daily/js/bootstrap.js" %}></script>
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.js" %}></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.bootstrap.js" %}></script>
+  <!-- To Slider JS -->
+  <script src={% static "moi/daily/js/sequence.js" %}></script>
+  <script src={% static "moi/daily/js/sequence-theme.modern-slide-in.js" %}></script>
+  <!-- Product view slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleGallery.js" %}></script>
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleLens.js" %}></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/slick.js" %}></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/nouislider.js" %}></script>
+  <!-- Custom js -->
+  <script src={% static "moi/daily/js/custom.js" %}></script>
+
+{% block title %}
+    {% if summary %}{{ summary }} |{% endif %} {{ block.super }}
+{% endblock %}
+
+{% block headertext %}{{ summary }}{% endblock %}
+
+{% block breadcrumbs %}
+  <p>&nbsp;</p>
+{% endblock breadcrumbs %}
+
+{% block column_left %}{% comment %}
+    {% category_tree as tree_categories %}
+    {% if tree_categories %}
+        <h4>{% trans "Show results for" %}</h4>
+        <div class="side_categories">
+            <ul class="nav nav-list">
+                {% for tree_category in tree_categories %}
+                    <li>
+                        <a href="{{ tree_category.url }}">
+                            {% if tree_category.pk == category.pk %}
+                                <strong>{{ tree_category.name }}</strong>
+                            {% else %}
+                                {{ tree_category.name }}
+                            {% endif %}
+                        </a>
+
+                        {% if tree_category.has_children %}<ul>{% else %}{% endif %}
+                        {% for n in tree_category.num_to_close %}
+                            </ul></li>
+                        {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    {% if has_facets %}
+        <h4>{% trans "Refine by" %}</h4>
+        <div class="side_categories">
+            {% for field, data in facet_data.items %}
+                {% if data.results %}
+                    {% include 'search/partials/facet.html' with name=data.name items=data.results %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}{% endcomment %}
+
+          <aside class="aa-sidebar">
+            <!-- single sidebar -->
+            <div class="aa-sidebar-widget">
+              <h3 style="color: #ff6666; border-bottom: 1px solid #ff6666; padding-bottom: 10px">Catégories</h3>
+              <ul class="aa-catg-nav" >
+                  {% for category in categories %}
+                      {% if category.has_children %}
+                          {% if category.name == "Mode Femme" %}
+                                 <br/>
+                               <li>
+                                  <span class="fa fa-female"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                          {% elif  category.name == "Mode Homme"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-male"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Téléphones"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-mobile"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Ordinateurs & Réseaux"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-laptop"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Santé & Beauté"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-heartbeat"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Sport & Loisirs"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-futbol-o"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Maison & Jardin"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-home"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Moto & Auto"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-car"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                          {% else %}
+                              <br/>
+                               <li>
+                                  <span class="fa fa-heart-o"></span>&nbsp;&nbsp;
+                                   <a href="{{ category.get_absolute_url }}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                          {% endif %}
+                      {% else %}
+                      <li style="list-style-type: circle; margin-left: 50px"><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+                      {% endif %}
+                  {% endfor %}
+              </ul>
+            </div>
+          </aside>
+    {% if has_facets %}
+        <h4>{% trans "Refine by" %}</h4>
+        <div class="side_categories">
+            {% for field, data in facet_data.items %}
+                {% if data.results %}
+                    {% include 'search/partials/facet.html' with name=data.name items=data.results %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <form method="get" class="form-horizontal">
+        {# Render other search params as hidden inputs #}
+        {% for value in selected_facets %}
+            <input type="hidden" name="selected_facets" value="{{ value }}" />
+        {% endfor %}
+        <input type="hidden" name="q" value="{{ search_form.q.value|default_if_none:"" }}" />
+
+        {% if paginator.count %}
+            {% if paginator.num_pages > 1 %}
+                {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
+                    <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                {% plural %}
+                    <strong>{{ num_results }}</strong> results - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                {% endblocktrans %}
+            {% else %}
+                {% blocktrans count num_results=paginator.count %}
+                    <strong>{{ num_results }}</strong> result.
+                {% plural %}
+                    <strong>{{ num_results }}</strong> results.
+                {% endblocktrans %}
+            {% endif %}
+            {% if form %}
+                <div class="pull-right">
+                    {% include "partials/form_field.html" with field=form.sort_by %}
+                </div>
+            {% endif %}
+        {% else %}
+            <p>
+                {% trans "<strong>0</strong> results." %}
+            </p>
+        {% endif %}
+    </form>
+
+    {% if products %}
+<section id="aa-product-category">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-9 col-sm-8 ">
+                <div class="aa-product-catg-body">
+              <ul class="aa-product-catg">
+                    {% for product in products %}
+                         <li>
+                  {% render_product product %}
+                </li>
+                    {% endfor %}
+              </ul>
+                </div>
+                {% include "partials/pagination.html" %}
+        </div>
+      </div>
+    </div>
+</section>
+    {% else %}
+        <p class="nonefound">{% trans "No products found." %}</p>
+    {% endif %}
+
+{% endblock content %}
+
+{% block onbodyload %}
+    {{ block.super }}
+    oscar.search.init();
+{% endblock %}

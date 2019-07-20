@@ -1,0 +1,435 @@
+{% extends "customer/baseaccountpage.html" %}
+<<<<<<< HEAD
+{% load static %}
+=======
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+{% load currency_filters %}
+{% load display_tags %}
+{% load i18n %}
+{% load reviews_tags %}
+
+<<<<<<< HEAD
+<link rel="stylesheet" type="text/css" href="{% static '../../style.css' %}" >
+<link rel="stylesheet" type="text/css" href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+<style>
+ul li .fa::after{
+	content:'';
+	background:#ccc;
+	height: 5px;
+	width:205px;
+	display:block;
+	position:absolute;
+	left:0;
+	top:105px;
+	z-index:-1;
+}
+
+
+ul li:nth-child(1) .d::after,
+ul li:nth-child(2) .d::after,
+ul li:nth-child(3) .d::after{
+	background:#60aa97;
+}
+
+ul li:nth-child(1) .e::after,
+ul li:nth-child(2) .e::after,
+ul li:nth-child(3) .e::after{
+	background:red;
+}
+
+
+
+ul li:nth-child(1) .b::after,
+ul li:nth-child(2) .b::after{
+	background:#60aa97;
+}
+
+ul li:nth-child(1) .c::after{
+background:#60aa97;}
+
+ul li:first-child .fa::after{
+	width:105px;
+	left:100px;
+}
+
+ul li:last-child .fa::after{
+	width:105px;
+}
+
+
+p{
+font-size:20px;}
+
+</style>
+
+
+=======
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+{% block extra_breadcrumbs %}
+    <li>
+        <a href="{% url 'customer:order-list' %}">{% trans 'Order history' %}</a>
+    </li>
+{% endblock %}
+
+{% block tabcontent %}
+<<<<<<< HEAD
+
+<h3>{% trans 'Etat De Votre Commande' %}</h3>
+
+    {% if order.status == 'En attente' %}
+<div class="progress" style=" height:200px; background:white; ">
+
+<ul style="text-align:center;">
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/liv.png' %}" style="width:70px;
+	margin-bottom:20px;"><br>
+<i class="fa fa-check c" style=" width:25px;
+	height:20px; border-radius:50%;  padding:6px; color:#fff;background:#60aa97;"></i>
+<p style="color:#01ab97;">En attente</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;"><img src="{% static 'moi/images/encr.png' %}" style="width:70px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-refresh c" style=" width:25px;
+	height:20px; border-radius:50%;padding:6px; color:#fff;background:#ccc;"></i>
+<p>En cours de livraison</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/livré.png' %}" style="width:70px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-refresh c" style=" width:25px;
+	height:20px; border-radius:50%; padding:6px; color:#fff;background:#ccc;" ></i>
+<p>Livré</p>
+</li>
+
+</ul>
+
+</div>
+        Votre commande est encore en attente ! Vous pouvez annuler votre commande !  &nbsp;&nbsp;&nbsp;
+<button type="submit" class="btn btn-danger">Annuler la commande</button>
+        <br/> <br/>
+
+    {% endif %}
+
+    {% if order.status == 'En cours de livraison' %}
+
+<div class="progress" style=" height:200px; background:white; " >
+
+<ul style=" height:200px; text-align:center;">
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/liv.png' %}" style="width:50px;
+	margin-bottom:20px;"><br>
+<i class="fa fa-check b" style=" width:25px;
+	height:20px; border-radius:50%;  padding:6px; color:#fff;background:#60aa97;"></i>
+<p style="color:#01ab97;">En attente</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;"><img src="{% static 'moi/images/encr.png' %}" style="width:50px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-check b" style=" width:25px;
+	height:20px; border-radius:50%;padding:6px; color:#fff;background:#60aa97;"></i>
+<p style="color:#01ab97;">En cours de livraison</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/livré.png' %}" style="width:50px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-refresh b" style=" width:25px;
+	height:20px; border-radius:50%; padding:6px; color:#fff;background:#ccc;" ></i>
+<p>Livré</p>
+</li>
+
+</ul>
+
+</div>
+
+    {% endif %}
+
+
+
+    {% if order.status == 'livrée' %}
+<div class="progress" style="
+	height:200px; background:white;color:#01ab97;">
+<ul style="text-align:center; color:#60aa97;" >
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/liv.png' %}" style="width:70px;
+	margin-bottom:20px;"><br>
+<i class="fa fa-check d" style=" width:25px;
+	height:20px; border-radius:50%;  padding:6px; color:#fff;background:#60aa97;"></i>
+<p>En attente</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;"><img src="{% static 'moi/images/encr.png' %}" style="width:70px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-check d" style=" width:25px;
+	height:20px; border-radius:50%;padding:6px; color:#fff;background:#60aa97;"></i>
+<p>En cours de livraison</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/livré.png' %}" style="width:70px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-check d" style=" width:25px;
+	height:20px; border-radius:50%; padding:6px; color:#fff;background:#60aa97;" ></i>
+<p>Livré</p>
+</li>
+
+</ul>
+
+</div>
+
+    {% endif %}
+
+{% if order.status == 'annulée' %}
+
+
+
+<div class="progress" style=" height:200px; background:white; " >
+
+<ul style="text-align:center;">
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/liv.png' %}" style="width:50px;
+	margin-bottom:20px;"><br>
+<i class="fa fa-times b" style="width:25px;
+background:red;
+	height:20px;
+	color:#fff;
+	border-radius:50%;
+
+	padding:6px;
+	"></i>
+<p style="color:red; margin-top:20px;">Annulée</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;"><img src="{% static 'moi/images/encr.png' %}" style="width:50px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-times b" style="width:25px;
+background:red;
+	height:20px;
+	color:#fff;
+	border-radius:50%;
+	padding:6px;
+	">
+	</i>
+<p style="color:red; margin-top:20px;">impossible</p>
+</li>
+<li style="display: inline-block;
+	width:200px;
+	position:relative;">
+<img src="{% static 'moi/images/livré.png' %}" style="width:50px;
+	margin-bottom:20px;"/><br>
+<i class="fa fa-times b"  style="width:25px;
+    background:red;
+	height:20px;
+	color:#fff;
+	border-radius:50%;
+	padding:6px;
+	"></i>
+<p style="color:red; margin-top:20px;">impossible</p>
+</li>
+
+</ul>
+
+</div>
+
+    {% endif %}
+
+
+
+
+=======
+    {% if order.status %}
+        <h3>{% trans 'Etat De Votre Commande' %}</h3>
+    <p>{{ order.status }}</p>
+    <hr>
+    {% endif %}
+
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>{% trans 'Product' %}</th>
+                <th>{% trans 'Dispatch date' %}</th>
+                <th>{% trans 'Qty' %}</th>
+                <th>{% trans 'Line price excl. tax' %}</th>
+                <th>{% trans 'Line price incl. tax' %}</th>
+                <th></th>
+            </tr>
+<<<<<<< HEAD
+
+
+
+
+
+=======
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+        </thead>
+        <tbody>
+            {% for line in order.lines.all %}
+                {% with product=line.product %}
+                    <tr>
+                        <td>
+                            {% if product %}
+                                <p>
+                                    <a href="{{ product.get_absolute_url }}">{{ line.description }}</a>
+                                </p>
+                                {% iffeature "reviews" %}
+                                    {% if product|is_review_permitted:user %}
+                                        <a class="btn btn-default" href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview">{% trans 'Write a review' %}</a>
+                                    {% endif %}
+                                {% endiffeature %}
+                            {% else %}
+                                <p>
+                                    {{ line.description }}
+                                </p>
+                            {% endif %}
+                        </td>
+                        <td>{{ line.est_dispatch_date|default:"-" }}</td>
+                        <td>{{ line.quantity }}</td>
+                        <td>{{ line.line_price_before_discounts_excl_tax|currency:order.currency }}</td>
+                        <td>{{ line.line_price_before_discounts_incl_tax|currency:order.currency }}</td>
+                        <td width="90">
+                            {% if product %}
+                                <form id="line_form_{{ line.id }}" action="{% url 'customer:order-line' order_number=order.number line_id=line.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="reorder" />
+                                    <button id="reorder_line_{{ line.id }}" class="btn btn-success" type="submit" data-loading-text="{% trans 'Re-ordering...' %}">{% trans 'Re-order' %}</button>
+                                </form>
+                            {% else %}
+                                {% trans 'Not available anymore' %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+
+            {% with discounts=order.basket_discounts %}
+                {% block discount_totals %}
+                    {% if discounts %}
+                        <tr>
+                            <td colspan="4">{% trans "Basket total (excl. discounts)" %}</td>
+                            <td colspan="2">{{ order.basket_total_before_discounts_incl_tax|currency:order.currency }}</td>
+                        </tr>
+                        {% for discount in discounts %}
+                        <tr>
+                            <td colspan="4">
+                                <span class="label label-success">{% trans "Discount" %}</span>
+                                {{ discount.offer_name }}
+                            </td>
+                            <td colspan="2">- {{ discount.amount|currency:order.currency }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                {% endblock discount_totals %}
+
+                {% block basket_total %}
+                    {% if discounts %}
+                        <tr>
+                            <th colspan="4">{% trans "Basket total (inc. discounts)" %}</th>
+                            <td colspan="2">{{ order.basket_total_incl_tax|currency:order.currency }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th colspan="4">{% trans "Basket total" %}</th>
+                            <td colspan="2">{{ order.basket_total_incl_tax|currency:order.currency }}</td>
+                        </tr>
+                    {% endif %}
+                {% endblock basket_total %}
+            {% endwith %}
+
+            {% block shipping_totals %}
+                {% if order.has_shipping_discounts %}
+                    <tr>
+                        <td colspan="4">{% trans "Shipping total (excl. discounts)" %}</td>
+                        <td colspan="2">{{ order.shipping_before_discounts_incl_tax|currency:order.currency }}</td>
+                    </tr>
+                    {% for discount in order.shipping_discounts %}
+                    <tr>
+                        <td colspan="4">
+                            <span class="label label-success">{% trans "Discount" %}</span>
+                            {{ discount.offer_name }}
+                        </td>
+                        <td colspan="2">- {{ discount.amount|currency:order.currency }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <th colspan="4">{% trans "Shipping total (inc. discounts)" %}</th>
+                        <td colspan="2">{{ order.shipping_incl_tax|currency:order.currency }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <th colspan="4">{% trans "Shipping total" %}</th>
+                        <td colspan="2">{{ order.shipping_incl_tax|currency:order.currency }}</td>
+                    </tr>
+                {% endif %}
+            {% endblock %}
+
+            {% block order_total %}
+                <tr>
+                    <th colspan="4">{% trans 'Order total' %}</th>
+                    <td colspan="2">{{ order.total_incl_tax|currency:order.currency }}</td>
+                </tr>
+            {% endblock order_total %}
+        </tbody>
+    </table>
+
+    {% block order_actions %}
+        <form id="order_form_{{ order.id }}" action="{% url 'customer:order' order_number=order.number %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="order_id" value="{{ order.id }}" />
+            <input type="hidden" name="action" value="reorder" />
+            <button type="submit" class="btn btn-success" data-loading-text="{% trans 'Re-ordering...' %}">{% trans 'Re-order all items' %}</button>
+        </form>
+    {% endblock order_actions %}
+
+    <hr>
+
+    <h2>{% trans 'Shipping Method' %}</h2>
+    <p>{{ order.shipping_method }}</p>
+
+    <hr>
+
+    <h2>{% trans 'Shipping Address' %}</h2>
+
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>{% trans 'Address' %}</th>
+            <th>{% trans 'Contact Number' %}</th>
+            <th>{% trans 'Shipping Notes' %}</th>
+        </tr>
+        <tr>
+            <td>
+                    {% for field in order.shipping_address.active_address_fields %}
+                        {{ field }}<br/>
+                    {% endfor %}
+            </td>
+            <td>{{ order.shipping_address.phone_number|default:"-" }}</td>
+            <td>{{ order.shipping_address.notes|linebreaks }}</td>
+        </tr>
+    </table>
+<<<<<<< HEAD
+
+
+{% endblock tabcontent %}
+
+
+=======
+{% endblock tabcontent %}
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914

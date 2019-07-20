@@ -1,0 +1,6 @@
+django
+django-user-media>=1.2.1
+django-generic-positions>=0.2
+django-hvad
+easy-thumbnails
+simplejson

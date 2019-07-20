@@ -1,0 +1,60 @@
+{% extends 'dashboard/layout.html' %}
+{% load currency_filters %}
+{% load url from future %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Fraud responses" %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+            <span class="divider">/</span>
+        </li>
+        <li class="active">{% trans "Fraud responses" %}</li>
+    </ul>
+{% endblock %}
+
+{% block headertext %}
+    {% trans "Fraud responses" %}
+{% endblock %}
+
+{% block dashboard_content %}
+    {% if responses %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>{% trans "The3rdMan ID" %}</th>
+                    <th>{% trans "Merchant ref" %}</th>
+                    <th>{% trans "Order" %}</th>
+                    <th>{% trans "Aggregator ID" %}</th>
+                    <th>{% trans "Merchant ID" %}</th>
+                    <th>{% trans "Score" %}</th>
+                    <th>{% trans "Recommendation" %}</th>
+                    <th>{% trans "Date receieved" %}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in responses %}
+                <tr {% if r.released %}class="success"{% elif r.on_hold %}class="warning"{% else %}class="error"{% endif %}>
+                    <td>{{ r.t3m_id }}</td>
+                    <td>{{ r.merchant_order_ref }}</td>
+                    <td><a href="{% url 'dashboard:order-detail' r.order_number %}">{{ r.order_number }}</a></td>
+                    <td>{{ r.aggregator_identifier|default:"-" }}</td>
+                    <td>{{ r.merchant_identifier }}</td>
+                    <td>{{ r.score }}</td>
+                    <td>{{ r.recommendation_text }}</td>
+                    <td>{{ r.date_created }}</td>
+                    <td><a href="{{ r.gatekeeper_url }}" class="btn">View on Gatekeeper site</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include "partials/pagination.html" %}
+{% else %}
+    <p>{% trans "No fraud responses have been made yet." %}</p>
+{% endif %}
+{% endblock dashboard_content %}

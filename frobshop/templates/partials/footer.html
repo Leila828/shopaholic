@@ -1,0 +1,479 @@
+<<<<<<< HEAD
+
+{% load i18n %}
+{% load static %}{% comment %}
+=======
+{% comment %}{% load i18n %}
+{% load static %}
+	<link rel="stylesheet" type="text/css" href="{%  static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "oscar/css/util.css" %}">
+	<link rel="stylesheet" type="text/css" href="c{% static "oscar/css/main.css" %}">
+
+
+<footer class="footer container-fluid" style ="font-family: sans-serif">
+    {% block footer %}
+		<div class="flex-w p-b-90">
+			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					Retrouver nous sur les réseaux sociaux
+				</h4>
+
+				<div>
+					<p class="s-text7 w-size27">
+
+					</p>
+
+					<div class="flex-m p-t-30">
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Nos Boutiques
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Adidas
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Galaxy phone
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Jennyfer
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Family Clothes
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Liens
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Recherche
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Qui sommes nous ?
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Contactez nous
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Revenus
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Aide
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Commandes
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							E-paiement
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Livraisons
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Avis sur nous
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					Contactez nous
+				</h4>
+
+				<form>
+                    <div class="effect1 w-size9">
+						<input class="s-text7 bg6 w-full p-b-5" type="text" name="nom" placeholder="Nom & Prénom">
+						<span class="effect1-line"></span>
+					</div>
+					<div class="effect1 w-size9">
+						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="Email">
+						<span class="effect1-line"></span>
+					</div>
+                    <textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Message"></textarea>
+
+					<div class="w-size2 p-t-20">
+						<!-- Button -->
+						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+							Envoyer
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+		<div class="t-center p-l-15 p-r-15">
+			<a href="#">
+				<img class="h-size2" src="{% static "oscar/paypal.png" %}" alt="IMG-PAYPAL">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static "oscar/visa.png" %}" alt="IMG-VISA">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static "oscar/mastercard.png" %}" alt="IMG-MASTERCARD">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static "oscar/express.png" %}" alt="IMG-EXPRESS">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="{% static "oscar/discover.png" %}" alt="IMG-DISCOVER">
+			</a>
+
+			<div class="t-center s-text8 p-t-20">
+				Copyright © 2019 All rights reserved. | ESI - SBA
+			</div>
+		</div>
+    {% endblock %}
+	</footer>
+
+{% endcomment %}
+
+{% load i18n %}
+{% load static %}
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+	<link rel="stylesheet" type="text/css" href="{%  static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}">
+<!--===============================================================================================-->
+
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/main_styles.css" %}">
+
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.carousel.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/animate.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/slick-1.8.0/slick.css" %}">
+
+<footer class="footer container-fluid" style ="font-family: sans-serif">
+    {% block footer %}
+        	<div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
+						<div class="newsletter_title_container">
+							<div class="newsletter_icon"><img src="{% static "moi/images/send.png" %}" alt=""></div>
+							<div class="newsletter_title">{% trans " Inscriver-vous a Nos Communication  " %}</div>
+							<div class="newsletter_text"><p>Et Accèder A Nos Offres et Nos Nouveautés</p></div>
+						</div>
+						<div class="newsletter_content clearfix">
+							<form action="#" class="newsletter_form">
+								<input type="email" class="newsletter_input" required="required" placeholder={% trans "Adresse" %}>
+								<button class="newsletter_button">{% trans  "S'inscrire"%}</button>
+							</form>
+							<div class="newsletter_unsubscribe_link"><a href="#">se désinscrire</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-3 footer_col">
+					<div class="footer_column footer_contact">
+						<div class="logo_container">
+							<div class="logo"><a href="#"><img src="{% static 'oscar/eyy.png' %} " alt="Shopaholic"/></a></div>
+						</div>
+						<div class="footer_title">Contacter Notre Service Client 24H/7H</div>
+						<div class="footer_phone">+213 69 78 54 12</div>
+						<div class="footer_contact_text">
+							<p>Shopaholic Center</p>
+							<p>ESI Sidi Bel Abbès</p>
+						</div>
+						<div class="footer_social">
+							<ul>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fab fa-google"></i></a></li>
+								<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 offset-lg-2">
+					<div class="footer_column">
+						<div class="footer_title">Nos Produits</div>
+						<ul class="footer_list">
+							<li><a href="#">Computers & Laptops</a></li>
+							<li><a href="#">Cameras & Photos</a></li>
+							<li><a href="#">Hardware</a></li>
+							<li><a href="#">Smartphones & Tablets</a></li>
+							<li><a href="#">TV & Audio</a></li>
+						</ul>
+						<div class="footer_subtitle">Gadgets</div>
+						<ul class="footer_list">
+							<li><a href="#">Car Electronics</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2">
+					<div class="footer_column">
+						<ul class="footer_list footer_list_2">
+							<li><a href="#">Video Games & Consoles</a></li>
+							<li><a href="#">Accessories</a></li>
+							<li><a href="#">Cameras & Photos</a></li>
+							<li><a href="#">Hardware</a></li>
+							<li><a href="#">Computers & Laptops</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-2">
+					<div class="footer_column">
+						<div class="footer_title">Links</div>
+						<ul class="footer_list">
+							<li><a href="#">Mon Compte</a></li>
+							<li><a href="#">Mes Commandes</a></li>
+							<li><a href="#">Wish List</a></li>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">FAQs</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+
+					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+						<div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+<script>document.write(new Date().getFullYear());</script> Tous les droits sont resevé | Esi-Sba <i class="fa fa-heart" aria-hidden="true"></i> par <a href="#" target="_blank">shopaholic</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+						<div class="logos ml-sm-auto">
+							<ul class="logos_list">
+								<li><a href="#"><img src="{% static "images/logos_1.png" %}" alt=""></a></li>
+								<li><a href="#"><img src=" {% static "images/logos_2.png" %}" alt=""></a></li>
+								<li><a href="#"><img src=" {% static "images/logos_3.png" %}" alt=""></a></li>
+								<li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    {% endblock %}
+<<<<<<< HEAD
+	</footer>{% endcomment %}
+
+ <!-- Font awesome -->
+    <link href="{% static "moi/daily/css/font-awesome.css"  %}"rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href=" {%  static "moi/daily/css/bootstrap.css" %}" rel="stylesheet">
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href=" {%  static "moi/daily/css/jquery.smartmenus.bootstrap.css" %}" rel="stylesheet">
+    <!-- Theme color -->
+    <link id="switcher" href=" {%  static "moi/daily/css/theme-color/default-theme.css" %}" rel="stylesheet">
+
+    <!-- Main style sheet -->
+    <link href=" {%  static "moi/daily/css/style.css" %}" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src={% static "moi/daily/js/bootstrap.js" %}></script>
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.js" %}></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.bootstrap.js" %}></script>
+  <!-- To Slider JS -->
+  <script src={% static "moi/daily/js/sequence.js" %}></script>
+  <script src={% static "moi/daily/js/sequence-theme.modern-slide-in.js" %}></script>
+  <!-- Product view slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleGallery.js" %}></script>
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleLens.js" %}></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/slick.js" %}></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/nouislider.js" %}></script>
+  <!-- Custom js -->
+  <script src={% static "moi/daily/js/custom.js" %}></script><!-- jQuery library -->
+  <!-- Subscribe section -->
+  <section id="aa-subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-subscribe-area">
+            <h3>Inscriver-vous a Notre NewsLetter </h3>
+            <p>Accéder à nos offres et nos communications !</p>
+            <form action="" class="aa-subscribe-form">
+              <input type="email" name="" id="" placeholder="Entrer Votre Email">
+              <input type="submit" value="S'inscrire">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Subscribe section -->
+<!-- footer -->
+  <footer id="aa-footer">
+    <!-- footer bottom -->
+    <div class="aa-footer-top">
+     <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+          <div class="aa-footer-top-area">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="aa-footer-widget">
+                  <h3>Menu principal</h3>
+                  <ul class="aa-footer-nav">
+                    <li><a href="{%   url 'acceuil:index' %}">Accueil</a></li>
+              <li><a href="{% url 'catalogue:index' %}">Catalogue des produits</a>
+
+              </li>
+              <li><a href="{% url "service:index" %}">Catalogue des services </a>
+              </li>
+
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="aa-footer-widget">
+                  <div class="aa-footer-widget">
+                    <h3>Shopaholic</h3>
+                    <ul class="aa-footer-nav">
+                      <li><a href="{% url "about:about_us" %}">Qui sommes nous ?</a></li>
+                      <li><a href="#">Conditions d'achat </a></li>
+                      <li><a href="#">Terms of Services</a></li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="aa-footer-widget">
+                  <div class="aa-footer-widget">
+                    <h3>Rejoignez nous !</h3>
+                    <ul class="aa-footer-nav">
+                      <li><a href="#">Devenir vendeur</a></li>
+                      <li><a href="#">Conditions de vente</a></li>
+                      <li><a href="#">Contactez nous !</a></li>
+
+                      <li><a href="#">FAQ</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="aa-footer-widget">
+                  <div class="aa-footer-widget">
+                    <h3>Contact Us</h3>
+                    <address>
+                      <p> Shopaholic Center, Sidi Bel Abbès</p>
+                      <p><span class="fa fa-phone"></span>+213 69 78 54 12</p>
+                      <p><span class="fa fa-envelope"></span>Shopaholic.shop118@gmail.com</p>
+                    </address>
+                    <div class="aa-footer-social">
+                      <a href="#"><span class="fa fa-facebook"></span></a>
+                      <a href="#"><span class="fa fa-twitter"></span></a>
+                      <a href="#"><span class="fa fa-google-plus"></span></a>
+                      <a href="#"><span class="fa fa-youtube"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+    <!-- footer-bottom -->
+    <div class="aa-footer-bottom">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+          <div class="aa-footer-bottom-area">
+            <p>Designed by <a href="#">Shopaholic</a></p>
+            <div class="aa-footer-payment">
+              <span class="fa fa-cc-mastercard"></span>
+              <span class="fa fa-cc-visa"></span>
+              <span class="fa fa-paypal"></span>
+              <span class="fa fa-cc-discover"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / footer -->
+=======
+	</footer>
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% load i18n %}
+
+{% block navigation %}
+    {% include "partials/nav_primary.html" %}
+{% endblock %}
+{% block headertext %}
+Créer votre boutique
+{% endblock %}
+
+{% block content %}
+
+
+
+
+    {% include 'dashboard/partials/form.html' with form=PartenaireAdressForm %}
+{% endblock content %}

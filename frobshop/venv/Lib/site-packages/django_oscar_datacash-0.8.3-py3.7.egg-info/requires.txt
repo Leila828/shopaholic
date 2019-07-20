@@ -1,0 +1,2 @@
+django-oscar>=0.6
+six>=1.5.2

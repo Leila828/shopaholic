@@ -1,0 +1,20 @@
+{% load sorl_thumbnail %}
+{% load staticfiles %}
+
+<div class="row">
+    <div class="col-sm-2">
+        <div class="image_container">
+            {% with image=service.primary_image %}
+                {% thumbnail image.original "x155" upscale=False as thumb %}
+                    <a href="#"><img src="{{ thumb.url }}" alt="{{ service.name }}" class="thumbnail"></a>
+                {% endthumbnail %}
+            {% endwith %}
+        </div>
+    </div>
+    <div class="col-sm-10">
+        <h2><a href="#">{{ service.name }}</a></h2>
+        {% include "service/reviews/partials/review_stars.html" %}
+    </div>
+</div>
+
+<hr>

@@ -1,0 +1,61 @@
+{% load basket_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load staticfiles %}
+{% load static %}
+ <link href="{% static "moi/daily/css/font-awesome.css"  %}"rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href=" {%  static "moi/daily/css/bootstrap.css" %}" rel="stylesheet">
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href=" {%  static "moi/daily/css/jquery.smartmenus.bootstrap.css" %}" rel="stylesheet">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static  "moi/daily/css/jquery.simpleLens.css" %}">
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/slick.css" %}">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/nouislider.css" %}">
+    <!-- Theme color -->
+    <link id="switcher" href=" {%  static "moi/daily/css/theme-color/default-theme.css" %}" rel="stylesheet">
+    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
+    <!-- Top Slider CSS -->
+    <link href=" {%  static "moi/daily/css/sequence-theme.modern-slide-in.css"  %}" rel="stylesheet" media="all">
+
+    <!-- Main style sheet -->
+    <link href=" {%  static "moi/daily/css/style.css" %}" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src={% static "moi/daily/js/bootstrap.js" %}></script>
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.js" %}></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.bootstrap.js" %}></script>
+  <!-- To Slider JS -->
+  <script src={% static "moi/daily/js/sequence.js" %}></script>
+  <script src={% static "moi/daily/js/sequence-theme.modern-slide-in.js" %}></script>
+  <!-- Product view slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleGallery.js" %}></script>
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleLens.js" %}></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/slick.js" %}></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/nouislider.js" %}></script>
+  <!-- Custom js -->
+  <script src={% static "moi/daily/js/custom.js" %}></script>
+
+{% purchase_info_for_product request product as session %}
+
+{% if session.availability.is_available_to_buy %}
+    {% basket_form request product 'single' as basket_form %}
+    <form action="{% url 'basket:add' pk=product.pk %}" method="post">
+        {% csrf_token %}
+        {{ basket_form.as_p }}
+        <a class="aa-add-card-btn"><button type="submit" style="background-color: transparent ;border-color: transparent"><span class="fa fa-shopping-cart"></span>Ajouter au Panier</button></a>
+    </form>
+{% else %}
+    <span class="btn btn-default btn-block disabled">{% trans "Non disponible" %}</span>
+{% endif %}

@@ -1,0 +1,2 @@
+django-oscar>=0.3
+requests>=0.13.5

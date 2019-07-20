@@ -1,0 +1,10 @@
+{% load i18n %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
+<form method="get" action="{% url 'search:search' %}" class="navbar-form navbar-right">
+    <div class="form-group">
+        {{ search_form.q }}
+    </div>
+    <input type="submit" value="{% trans "Search" %}" class="btn btn-default" />
+</form>

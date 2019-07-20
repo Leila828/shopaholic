@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load position_tags %}
+
+{% block main %}
+<form action="{% url "position_bulk_update" %}" method="post">
+    {% csrf_token %}
+    <ul id="positionContainer" >
+    {% for obj in object_list|order_by_position:'reverse' %}
+        <li style="background-color: #{% cycle 'eee' 'fff' %};">{{ obj }} &raquo; {% position_input obj 'visible' %}</li>
+    {% endfor %}
+    </ul>
+</form>
+{% endblock %}
+
+{% block extrajs %}
+<script src="{{ STATIC_URL }}generic_positions/js/reorder.js"></script>
+{% endblock %}

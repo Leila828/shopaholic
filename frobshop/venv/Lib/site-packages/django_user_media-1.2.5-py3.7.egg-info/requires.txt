@@ -1,0 +1,9 @@
+django
+django-generic-positions>=0.2
+django-libs
+simplejson
+easy_thumbnails
+
+[dev]
+flake8
+mixer

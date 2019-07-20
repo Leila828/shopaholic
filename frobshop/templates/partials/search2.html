@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load static %}
+ <link rel="stylesheet" type="text/css" href="{% static "recherche/css/default.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "recherche/css/component.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "oscar/css/new.css" %}" />
+
+<div class="container">
+    <div id="sb-search" >
+        <form>
+            <input class="ttt" placeholder="Rechercher un produit, un service ou une boutique..." type="text" value="" name="search" id="search">
+            <input class="sb-search-submit" type="submit" value="">
+            <span class="sb-icon-search"></span>
+        </form>
+
+    </div>
+</div><!-- /container -->

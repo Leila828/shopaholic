@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+{% load static %}
+{% block headertext %}
+Catégories Des Services
+{% endblock %}
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+        </li>
+        <li>
+            <a href="{% url 'service:index' %}">{% trans "Service" %}</a>
+        </li>
+        <li class="active">Catégories Des Services</li>
+    </ul>
+{% endblock breadcrumbs %}
+
+
+{% block content %}
+{% if categories %}
+<section class="blog bgwhite p-t-94 p-b-65">
+		<div class="container">
+
+			<div>
+                <ol class="row">
+                    {% for category in categories %}
+				<li class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					<!-- Block3 -->
+
+						<a href="{% url 'service:service_list_category' category.id %}" class="block3-img dis-block hov-img-zoom">
+							<img src="{{ category.image.url }}" alt="{{ category.name }}"  height="140px" width="330px">
+                            <br/><br/>
+						</a>
+
+						<div class="block3-txt p-t-14">
+							<h4 class="p-b-7">
+								<a href="{% url 'service:service_list_category' category.id %}" class="m-text11">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category.name }}
+								</a>
+							</h4>
+
+							<p class="s-text8 p-t-16">
+							{{ category.description }}
+							</p>
+						</div>
+
+				</li>
+                    {% endfor %}
+                </ol>
+			</div>
+		</div>
+    </section>
+{% else %}
+    <p>Aucune catégorie disponible.</p>
+ {% endif %}
+{% endblock content %}

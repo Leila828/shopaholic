@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% load history_tags %}
+{% load currency_filters %}
+{% load reviews_tags %}
+{% load staticfiles %}
+{% load product_tags %}
+{% load display_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+
+{% block title %}
+    {{ service.name }} | {{ block.super }}
+{% endblock %}
+
+{% block description %}
+    {{ service.description|default:""|striptags }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<<<<<<< HEAD
+    &nbsp;
+=======
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+<ul class="breadcrumb">
+    <li>
+        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+    </li>
+    {% with category=product.categories.all.0 %}
+        <li>
+            <a href="{% url 'service:service_list_category' service.category.id %}">{{ service.category.name }}</a>
+        </li>
+        <li class="active">{{ service.name }}</li>
+
+        {% get_back_button as backbutton %}
+        {% if backbutton %}
+            <li class="pull-right">
+                <a href="{{ backbutton.url }}">
+                    <i class="icon-arrow-left"></i> {{ backbutton.title }}
+                </a>
+            </li>
+        {% endif %}
+    {% endwith %}
+</ul>
+{% endblock %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+
+<article class="product_page"><!-- Start of product page -->
+
+    <div class="row">
+
+        {% block product_gallery %}
+        <div class="col-sm-6">
+            {% include "service/partials/gallery.html" %}
+        </div>
+        {% endblock %}
+
+        {% block product_main %}
+        <div class="col-sm-6 product_main">
+            {% comment %}
+            This is a but clunky here.  Better to have some kind of JS-driven dashboard menu that
+            pops out when clicked.  A bit like the Django-Debug-Toolbar button
+            {% endcomment %}
+            {% if user.is_staff %}
+                <a class="pull-right hidden-xs" href="{% url 'admin:index' %}"><small><i class="icon-edit"></i> {% trans "Modifier ce service" %}</small></a>
+            {% endif %}
+            <h1>{{ service.name }}</h1>
+         {% block product_description %}
+        {% if service.description %}
+        <div id="product_description" class="sub-header">
+            <h2>{% trans "Description Du Service" %}</h2>
+        </div>
+        <p>{{ service.description|safe }}</p>
+        {% endif %}
+    {% endblock %}
+
+            {% iffeature "reviews" %}
+
+            {% endiffeature %}
+
+            <hr/>
+
+                {% block product_basket_form %}
+                     <a href="mailto:{{ service.email }}"><button type="submit" class="btn btn-primary btn-block" data-loading-text="{% trans 'Contact...' %}">{% trans "Contacter" %}</button></a>
+                {% endblock %}
+
+        </div><!-- /col-sm-6 -->
+        {% endblock %}
+
+    </div><!-- /row -->
+
+
+
+    {% block product_info %}
+    <div class="sub-header">
+        <h2>{% trans "Informations Du Service" %}</h2>
+    </div>
+    <table class="table table-striped">
+        {% if service.tel %}
+        <tr>
+            <th>{% trans "Téléphone" %}</th><td>{{ service.tel }}</td>
+        </tr>
+        {% endif %}
+        <tr>
+<<<<<<< HEAD
+            <th>{% trans "Email" %}</th><td><a href="mailto:shopaholic.shop118@gmail.com">{{ service.email }}</a></td>
+=======
+            <th>{% trans "Email" %}</th><td>{{ service.email }}</td>
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+        </tr>
+        {% iffeature "reviews" %}
+            <tr>
+                <th>{% trans "Number of reviews" %}</th>
+                <td>{{ service.num_approved_reviews }}</td>
+            </tr>
+        {% endiffeature %}
+    </table>
+    {% endblock %}
+
+    {% iffeature "reviews" %}
+        {% block product_review %}
+        <section>
+            <div id="reviews" class="sub-header">
+                {% if service.num_approved_reviews > 3 %}
+                    <a href="#" class="btn pull-right">{% trans "See all reviews" %}</a>
+                {% endif %}
+                <h2>{% trans "Customer Reviews" %}</h2>
+            </div>
+
+            {% if service.num_approved_reviews == 0 %}
+                <p>
+                    {% if service|is_review_permitted:user %}
+
+                            Ce service n'a pas encore reçu d'avis -
+                            <a href="{% url 'service:avis:create' service.id %}">Soyez le premier à en écrire un</a>.
+                    {% else %}
+                        {% trans "Ce service n'a pas encore reçu d'avis" %}.
+                    {% endif %}
+                </p>
+            {% else %}
+                <ol class="list-unstyled review-list">
+                    {% for review in service.avis.approved.all %}
+                        <li>
+                        {% include 'service/partials/review.html' %}
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+        </section>
+        {% endblock product_review %}
+    {% endiffeature %}
+
+
+    {% recently_viewed_products current_product=service %}
+
+</article><!-- End of product page -->
+{% endblock content %}
+
+{% block extrascripts %}
+    {{ block.super }}
+{% endblock %}

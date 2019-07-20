@@ -1,0 +1,79 @@
+{% load reviews_tags %}
+{% load sorl_thumbnail %}
+{% load i18n %}
+{% load display_tags %}
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+ <link href="{% static "moi/daily/css/font-awesome.css"  %}"rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href=" {%  static "moi/daily/css/bootstrap.css" %}" rel="stylesheet">
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href=" {%  static "moi/daily/css/jquery.smartmenus.bootstrap.css" %}" rel="stylesheet">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static  "moi/daily/css/jquery.simpleLens.css" %}">
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/slick.css" %}">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/nouislider.css" %}">
+    <!-- Theme color -->
+    <link id="switcher" href=" {%  static "moi/daily/css/theme-color/default-theme.css" %}" rel="stylesheet">
+    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
+    <!-- Top Slider CSS -->
+    <link href=" {%  static "moi/daily/css/sequence-theme.modern-slide-in.css"  %}" rel="stylesheet" media="all">
+
+    <!-- Main style sheet -->
+    <link href=" {%  static "moi/daily/css/style.css" %}" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src={% static "moi/daily/js/bootstrap.js" %}></script>
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.js" %}></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.bootstrap.js" %}></script>
+  <!-- To Slider JS -->
+  <script src={% static "moi/daily/js/sequence.js" %}></script>
+  <script src={% static "moi/daily/js/sequence-theme.modern-slide-in.js" %}></script>
+  <!-- Product view slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleGallery.js" %}></script>
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleLens.js" %}></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/slick.js" %}></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/nouislider.js" %}></script>
+  <!-- Custom js -->
+  <script src={% static "moi/daily/js/custom.js" %}></script>
+{% block product %}
+
+<figure>
+                    {% thumbnail product.primary_image.original "x250" upscale=False as thumb %}
+                    <a class="aa-product-img" href="{{ product.get_absolute_url }}"><img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="thumbnail"></a>
+                    {% endthumbnail %}
+
+                    {% include "catalogue/partials/add_to_basket_form_compact.html" %}
+                    <figcaption>
+                      <h4 class="aa-product-title"><a href="{{ product.get_absolute_url }}">{{ product.get_title }}</a></h4>
+                       {% include "catalogue/partials/stock_record.html" %}
+                         {% block product_review %}
+                                   {% iffeature "reviews" %}
+                <p class="star-rating {{ product.rating|as_stars }}">
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                </p>
+            {% endiffeature %}
+        {% endblock %}
+                    </figcaption>
+                  </figure>
+                  <div class="aa-product-hvr-content">
+                  {% include "catalogue/partials/wishlist.html" %}
+
+                  </div>
+{% endblock %}

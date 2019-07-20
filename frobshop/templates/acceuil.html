@@ -1,0 +1,376 @@
+{% extends "layout.html" %}
+
+
+{% load sorl_thumbnail %}
+{% load reviews_tags %}
+{% load i18n %}
+{% load display_tags %}
+{% load basket_tags %}
+{% load category_tags %}
+{% load product_tags %}
+{% load bootstrap %}
+{% load static %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static  " moi/daily/css/font-awesome.css"%}"/>
+<link href="{% static "moi/daily/css/bootstrap.css"%} />
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href= {% static "moi/daily/css/jquery.smartmenus.bootstrap.css" %} ">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href="{% static "moi/daily/css/jquery.simpleLens.css"%}">
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="{% static "moi/daily/css/slick.css"%}">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href="{% static "moi/daily/css/nouislider.css" %}">
+    <link id="switcher" href="{% static "moi/daily/css/theme-color/default-theme.css" %}">
+     <link rel="stylesheet" type="text/css" href="{% static "moi/daily/css/style.css"%}">
+    <!-- Top Slider CSS -->
+    <link href="{% static "moi/daily/css/sequence-theme.modern-slide-in.css" %} " media="all">
+
+    <!-- Main style sheet -->
+    <link href="{% static "moi/daily/css/style.css"%}" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+
+
+
+
+
+
+
+{% comment %}
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/comment.css" %}" >
+
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/responsive.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/main_styles.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/bootstrap4/bootstrap.min.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.carousel.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/animate.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/slick-1.8.0/slick.css" %}">
+{% endcomment %}
+
+
+
+
+
+{% block content %}
+<section id="aa-slider">
+    <div class="aa-slider-area">
+      <div id="sequence" class="seq">
+        <div class="seq-screen">
+          <ul class="seq-canvas">
+            <!-- single slide item -->
+            <li>
+              <div class="seq-model">
+                <img data-seq src="{% static "moi/daily/img/BA58BE1A0A18141F0D61487787E567C8.jpg" %}" alt="Men slide img" />
+              </div>
+              <div class="seq-title">
+
+                <a data-seq href="{% url 'catalogue:index'%}" class="aa-shop-now-btn aa-secondary-btn" style="margin-top: 290px;padding-left:100px ">SHOP NOW</a>
+              </div>
+            </li>
+            <!-- single slide item -->
+            <li>
+              <div class="seq-model">
+                <img data-seq src="{% static "moi/daily/img/BFEC0A050A18141F1868AE4BB3294DE1.jpg" %}" alt="Wristwatch slide img" />
+              </div>
+              <div class="seq-title">
+
+                <a data-seq href="{% url 'catalogue:index'%}" class="aa-shop-now-btn aa-secondary-btn" style="margin-top: 300px; margin-left: 70px">SHOP NOW</a>
+              </div>
+            </li>
+            <!-- single slide item -->
+            <li>
+              <div class="seq-model">
+                <img data-seq src="{% static "moi/daily/img/slider/3.jpg" %} " alt="Women Jeans slide img" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>Save Up to 75% Off</span>
+                <h2 data-seq>Jeans Collection</h2>
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="{% url 'catalogue:index'%}" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>
+            <!-- single slide item -->
+
+            <!-- single slide item -->
+
+          </ul>
+        </div>
+        <!-- slider navigation btn -->
+        <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
+          <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
+          <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>
+        </fieldset>
+      </div>
+    </div>
+  </section>
+    <!-- product-->
+
+
+
+    <section id="aa-product">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="aa-product-area">
+
+              <div class="aa-product-inner">
+
+                <!-- start prduct navigation -->
+                 <ul class="nav nav-tabs aa-products-tab">
+<h1 style="color: #721c24; font-family: Serif;  line-height: 20px;font-weight: 700;margin-bottom: 30px;
+
+    font-size: 32px;
+
+
+   "> Nos Produits <hr style="border-bottom: 1px solid darkred ; margin-left: 400px; margin-right: 400px"> </h1>
+
+
+                  </ul>
+
+
+              <div class="tab-content">
+
+                    <!-- Start men product category -->
+                    <div class="tab-pane fade in active" >
+                      <ul class="aa-product-catg">
+                        <!-- start single product item -->
+{% for product in product_tt %}
+{% if   forloop.counter <= 8  %}
+
+             <li>
+
+                          <figure>
+
+              {% render_product product %}
+
+
+                          </figure>
+
+
+</li>
+{% endif %}
+                     {% endfor %}
+
+                    </ul>
+                    </div>
+                {% include "partials/pagination.html" %}
+
+
+                  </div>
+
+
+             </div>
+             <a class="aa-browse-btn" href="{% url 'catalogue:index'  %}" style="position: center">voir tous les produits <span class="fa fa-long-arrow-right"></span></a>
+
+                <!-- / latest product category -->
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+     </section>
+<section id="aa-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="aa-banner-area">
+            <a href="#"><img src="{% static "moi/daily/img/tttt.png" %}" alt="fashion banner img"></a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!--service-->
+    <section id="aa-popular-category">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="row">
+
+            <div class="aa-popular-category-area">
+              <!-- start prduct navigation -->
+             <ul class="nav nav-tabs aa-products-tab">
+          <h1 style="color: #721c24; font-family: Serif;  line-height: 20px;font-weight: 700;margin-bottom: 30px;
+
+    font-size: 32px;
+
+
+   "> Nos Services <hr style="border-bottom: 1px solid darkred ; margin-left: 400px; margin-right: 400px"> </h1>
+              </ul>
+
+{% for service in service_tt %}
+{% if   forloop.counter <= 4  %}
+
+            <div class="tab-content">
+
+                <!-- Start men popular category -->
+                <div class="tab-pane fade in active" id="popular">
+
+                  <ul class="aa-product-catg aa-popular-slider">
+                    <!-- start single product item -->
+                    <li>
+                      <figure>
+
+                                      {% block product_image %}
+
+                                                 <a class ="aa-product-img" href="{% url 'service:detail' service.id %}"><img src="{{ service.primary_image.image.url }}" alt="{{ service.name }}" class="thumbnail" width="200px" height="200px"/></a>
+
+                                      {% endblock %}
+                                      {% block product_review %}
+                                              {% iffeature "reviews" %}
+                                                  <p class="star-rating {{ service.rating|as_stars }}">
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                  </p>
+                                              {% endiffeature %}
+                                      {% endblock %}
+                                      {% block product_title %}
+                                            <h3><a href="{% url 'service:detail' service.id %}" title="{{ service.name }}">{{service.name|truncatewords:4 }}</a></h3>
+                                      {% endblock %}
+                                       {% block product_price %}
+                                             <div class="product_price">
+
+                                                 <p class="price_color" style="color: darkslateblue"> {{ service.tel }}</p>
+                                                 <a href="mailto:{{ service.email }}"><button type="submit" class="aa-browse-btn" data-loading-text="{% trans 'Contact...' %}">{% trans "Contacter" %}</button></a>
+                                             </div>
+                                       {% endblock %}
+
+
+
+                  </figure>
+                  </li>
+
+                  </ul>
+{% endif %}
+                     {% endfor %}
+
+                {% include "partials/pagination.html" %}
+            </div>
+             </div>
+                <!-- / latest product category -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+<!------ Include the above in your HEAD tag ---------->
+
+ <section id="aa-support">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-support-area">
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-truck"></span>
+                <h4>livraison gratuite</h4>
+                <P>livraison gratuite dés que votre somme total dépasse 10000 da.</P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-clock-o"></span>
+                <h4>14jours pour annulation d'une commande</h4>
+                <P>le délai max est 14 jours en cas d'annulation de votre commande aprés confirmation</P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-phone"></span>
+                <h4>centre d'aide 24/7</h4>
+                <P>A toute heure, vous pouvez contacter le Centre d'Aide pour une expérience d'achat facile.</P>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Support section -->
+  <!-- Testimonial -->
+   <!-- / Support section -->
+  <!-- Testimonial -->
+  <section id="aa-testimonial">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-testimonial-area">
+            <ul class="aa-testimonial-slider">
+              <!-- single slide -->
+              <li style="    background-color: #ff6666;">
+                <div class="aa-testimonial-single">
+
+                 <h4>Vous souhaitez vender sur <span style="font-weight: bolder">shopaholic </span> ? Alors, suivez le guide, nous allons vous donner plusieurs conseils pour y parvenir !</h4>
+
+                  <div class="aa-testimonial-info">
+
+                    <a href="#" style="color: #721c24; font-weight: bolder">cliquer ici</a>
+                  </div>
+                </div>
+              </li>
+      </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+<!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src={% static "moi/daily/js/bootstrap.js" %}></script>
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.js" %}></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.bootstrap.js" %}></script>
+  <!-- To Slider JS -->
+  <script src={% static "moi/daily/js/sequence.js" %}></script>
+  <script src={% static "moi/daily/js/sequence-theme.modern-slide-in.js" %}></script>
+  <!-- Product view slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleGallery.js" %}></script>
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleLens.js" %}></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/slick.js" %}></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/nouislider.js" %}></script>
+  <!-- Custom js -->
+
+
+{% endblock %}
+
+<!-- begin wwww.htmlcommentbox.com -->
+ <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24S6L1wR0MZkcfXgy3Nbsj9%2F"+"&opts=16862&num=10&ts=1559352866295");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end www.htmlcommentbox.com -->

@@ -1,0 +1,288 @@
+<<<<<<< HEAD
+{% extends "layout_2_col.html" %}
+=======
+{% extends "layout.html" %}
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+{% load sorl_thumbnail %}
+{% load reviews_tags %}
+{% load i18n %}
+{% load display_tags %}
+{% load basket_tags %}
+{% load category_tags %}
+{% load product_tags %}
+<<<<<<< HEAD
+{% load bootstrap %}
+{% load static %}
+
+  <link href="{% static "moi/daily/css/font-awesome.css"  %}"rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href=" {%  static "moi/daily/css/bootstrap.css" %}" rel="stylesheet">
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href=" {%  static "moi/daily/css/jquery.smartmenus.bootstrap.css" %}" rel="stylesheet">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static  "moi/daily/css/jquery.simpleLens.css" %}">
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/slick.css" %}">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href=" {%  static "moi/daily/css/nouislider.css" %}">
+    <!-- Theme color -->
+    <link id="switcher" href=" {%  static "moi/daily/css/theme-color/default-theme.css" %}" rel="stylesheet">
+    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
+    <!-- Top Slider CSS -->
+    <link href=" {%  static "moi/daily/css/sequence-theme.modern-slide-in.css"  %}" rel="stylesheet" media="all">
+
+    <!-- Main style sheet -->
+    <link href=" {%  static "moi/daily/css/style.css" %}" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src={% static "moi/daily/js/bootstrap.js" %}></script>
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.js" %}></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.smartmenus.bootstrap.js" %}></script>
+  <!-- To Slider JS -->
+  <script src={% static "moi/daily/js/sequence.js" %}></script>
+  <script src={% static "moi/daily/js/sequence-theme.modern-slide-in.js" %}></script>
+  <!-- Product view slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleGallery.js" %}></script>
+  <script type="text/javascript" src={% static "moi/daily/js/jquery.simpleLens.js" %}></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/slick.js" %}></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src={% static "moi/daily/js/nouislider.js" %}></script>
+  <!-- Custom js -->
+  <script src={% static "moi/daily/js/custom.js" %}></script>
+=======
+{% load static %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/responsive.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/main_styles.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/bootstrap4/bootstrap.min.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.carousel.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/OwlCarousel2-2.2.1/animate.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "moi/plugins/slick-1.8.0/slick.css" %}">
+<script src="{% static "moi/js/jquery-3.3.1.min.js" %}"></script>
+<script src="{% static " moi/styles/bootstrap4/popper.js"%}"></script>
+<script src="{% static "moi/styles/bootstrap4/bootstrap.min.js"%}"></script>
+<script src="{% static "moi/plugins/greensock/TweenMax.min.js "%}"></script>
+<script src="{% static " moi/plugins/greensock/TimelineMax.min.js"%}"></script>
+<script src="{% static "moi/plugins/scrollmagic/ScrollMagic.min.js "%}"></script>
+<script src="{% static "moi/plugins/greensock/animation.gsap.min.js "%}"></script>
+<script src="{% static "moi/plugins/greensock/ScrollToPlugin.min.js"%}"></script>
+<script src="{% static "moi/plugins/OwlCarousel2-2.2.1/owl.carousel.js "%}"></script>
+<script src="{% static "moi/plugins/slick-1.8.0/slick.js "%}"></script>
+<script src="{% static "moi/plugins/easing/easing.js "%}"></script>
+<script src="{% static "moi/js/custom.js "%}"></script>
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+{% block headertext %}
+Tous les services
+{% endblock %}
+{% block breadcrumbs %}
+<<<<<<< HEAD
+   <p>&nbsp;</p>
+{% endblock breadcrumbs %}
+{% block column_left %}
+   <aside class="aa-sidebar">
+            <!-- single sidebar -->
+            <div class="aa-sidebar-widget">
+              <h3 style="color: #ff6666; border-bottom: 1px solid #ff6666; padding-bottom: 10px">Catégories</h3>
+              <ul class="aa-catg-nav" >
+                  {% for category in categories %}
+                      {% if category %}
+                          {% if category.name == "Mariage" %}
+                                 <br/>
+                               <li>
+                                  <span class="fa fa-heart"></span>&nbsp;&nbsp;
+                                   <a href="{% url 'service:service_list_category' category.id %}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                          {% elif  category.name == "Voyage"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-plane"></span>&nbsp;&nbsp;
+                                   <a href="{% url 'service:service_list_category' category.id %}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Restaurants"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-coffee"></span>&nbsp;&nbsp;
+                                   <a href="{% url 'service:service_list_category' category.id %}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Industrie"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-wrench"></span>&nbsp;&nbsp;
+                                   <a href="{% url 'service:service_list_category' category.id %}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                              {% elif  category.name == "Immobilier"%}
+                               <br/>
+                               <li>
+                                  <span class="fa fa-home"></span>&nbsp;&nbsp;
+                                   <a href="{% url 'service:service_list_category' category.id %}"><strong>{{ category.name }}</strong></a>
+                               </li>
+
+                          {% else %}
+                              <br/>
+                               <li>
+                                  <span class="fa fa-heart-o"></span>&nbsp;&nbsp;
+                                   <a href="{% url 'service:service_list_category' category.id %}"><strong>{{ category.name }}</strong></a>
+                               </li>
+                          {% endif %}
+                      {% else %}
+                      <li style="list-style-type: circle; margin-left: 50px"><a href="{% url 'service:service_list_category' category.id %}">{{ category.name }}</a></li>
+                      {% endif %}
+                  {% endfor %}
+              </ul>
+            </div>
+          </aside>
+    {% if has_facets %}
+        <h4>{% trans "Refine by" %}</h4>
+        <div class="side_categories">
+            {% for field, data in facet_data.items %}
+                {% if data.results %}
+                    {% include 'search/partials/facet.html' with name=data.name items=data.results %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
+{% block content %}
+<form action="" method="get" class="">
+    {{ filter.form|bootstrap }}
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="submit" class = "btn btn-primary">  Filtrer   </button>
+    </form>
+{% if filter.qs %}
+    <section id="aa-product-category">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-9 col-sm-8 ">
+                <div class="aa-product-catg-body">
+              <ul class="aa-product-catg">
+                     {% for service in filter.qs %}
+                          <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                 <article class="product_pod">
+
+
+                    <a class="aa-product-img" href="{% url 'service:detail' service.id %}"><img src="{{ service.primary_image.image.url }}" alt="{{ service.name }}" class="thumbnail" width="250px" height="270px"/></a>
+
+
+
+                                     <figcaption>
+                      <h4 class="aa-product-title"><a href="{% url 'service:detail' service.id %}">{{ service.name }}</a></h4>
+
+                         {% block product_review %}
+                                   {% iffeature "reviews" %}
+                <p class="star-rating {{ service.rating|as_stars }}">
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                </p>
+            {% endiffeature %}
+        {% endblock %}
+                    </figcaption>
+
+
+                                 </article>
+                             </li> {% comment %}
+                         <figure>
+                    <div class="image_container">
+                                                 <a href="{% url 'service:detail' service.id %}"><img src="{{ service.primary_image.image.url }}" alt="{{ service.name }}" class="thumbnail" width="200px" height="200px"/></a>
+                                             </div>
+
+                    <img src="{{ service.primary_image.image.url }}" alt="{{ service.name }}" class="thumbnail" width="200px" height="200px"/>
+                    <figcaption>
+                      <h4 class="aa-product-title"><a href="{% url 'service:detail' service.id %}">{{ service.name }}</a></h4>
+
+                         {% block product_review %}
+                                   {% iffeature "reviews" %}
+                <p class="star-rating {{ service.rating|as_stars }}">
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                </p>
+            {% endiffeature %}
+        {% endblock %}
+                    </figcaption>
+                  </figure>{% endcomment %}
+
+
+                     {% endfor %}
+                </ul>
+                </div>
+                {% include "partials/pagination.html" %}
+        </div>
+      </div>
+    </div>
+</section>
+=======
+    <ul class="breadcrumb">
+        <li>
+            <a href="{{ hom.epage_url }}">{% trans "Home" %}</a>
+        </li>
+        <li class="active">Tous les service</li>
+    </ul>
+{% endblock breadcrumbs %}
+{% block column_left %}
+    <p>les catégories</p>
+{% endblock %}
+{% block content %}
+{% if service_tt %}
+    <section>
+            <div>
+                <ol class="row">
+                     {% for service in service_tt %}
+                           <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                 <article class="product_pod">
+                                      {% block product_image %}
+                                             <div class="image_container">
+                                                 <a href="{% url 'service:detail' service.id %}"><img src="{{ service.primary_image.image.url }}" alt="{{ service.name }}" class="thumbnail" width="200px" height="200px"/></a>
+                                             </div>
+                                      {% endblock %}
+                                      {% block product_review %}
+                                              {% iffeature "reviews" %}
+                                                  <p class="star-rating {{ service.rating|as_stars }}">
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                          <i class="icon-star"></i>
+                                                  </p>
+                                              {% endiffeature %}
+                                      {% endblock %}
+                                      {% block product_title %}
+                                            <h3><a href="{% url 'service:detail' service.id %}" title="{{ service.name }}">{{service.name|truncatewords:4 }}</a></h3>
+                                      {% endblock %}
+                                       {% block product_price %}
+                                             <div class="product_price">
+                                                 <p class="price_color"> {{ service.email }}</p>
+                                                 <p class="price_color"> {{ service.tel }}</p>
+                                                 <a href="mailto:{{ service.email }}"><button type="submit" class="btn btn-primary btn-block" data-loading-text="{% trans 'Contact...' %}">{% trans "Contacter" %}</button></a>
+                                             </div>
+                                       {% endblock %}
+
+                                 </article>
+                             </li>
+
+                     {% endfor %}
+                </ol>
+                {% include "partials/pagination.html" %}
+            </div>
+    </section>
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+{% else %}
+    <p>Aucun service disponible.</p>
+{% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,60 @@
+{% extends 'dashboard/layout.html' %}
+{% load category_tags %}
+{% load render_table from django_tables2 %}
+{% load i18n %}
+
+{% block body_class %}{{ block.super }} create-page service{% endblock %}
+
+{% block title %}
+    {% trans "Catégories" %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+        </li>
+        <li class="active">{% trans "Catégories" %}</li>
+    </ul>
+{% endblock %}
+
+{% block headertext %}{% trans "Catégories" %}{% endblock %}
+
+{% block dashboard_content %}
+{% block create_product %}
+        <div class="table-header">
+            <h3><i class="icon-sitemap icon-large"></i> {% trans "Créer une catégorie " %}</h3>
+        </div>
+        <div class="well">
+             <a href="{% url 'Service:category_create' %}" > <button class="btn btn-primary " type="submit" data-loading-text="{% trans 'Submitting...' %}"><i class="icon-plus"></i> {% trans "Nouvelle catégorie" %}</button>
+           </a>
+        </div>
+    {% endblock %}
+{% if category %}
+        {% block product_list %}
+
+            <form method="post">
+                {% csrf_token %}
+                {% render_table category %}
+            </form>
+            <div class="modal fade" id="product-image-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body text-center">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock product_list %}
+    {% else %}
+        <p>{% trans "No Categories found." %}</p>
+    {% endif %}
+
+
+
+{% endblock dashboard_content %}

@@ -1,0 +1,110 @@
+{% load i18n %}
+{% load static %}
+{% load currency_filters %}
+
+<link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "moi/styles/main_styles.css" %}" />
+
+
+
+{% comment %}
+<div class="col-sm-10 h1"><a href="{{ homepage_url }}"><img src="{% static "oscar/logo.png" %}" alt=""></a>
+   {% include "partials/search.html" %}
+   {% include "partials/mini_basket.html" %}
+
+</div>
+{% endcomment %}
+<<<<<<< HEAD
+<div class="header_main" style="height: 150px">
+			<div class="container" >
+				<div class="row" >
+
+					<!-- Logo -->
+
+					<div class="col-lg-4 col-sm-3 col-3 order-1">
+						<div class="logo_container">
+							<div class="logo"><a href="{{ homepage_url }}"><img src="{% static "oscar/log.png" %}" alt=""></a></div>
+=======
+<div class="header_main">
+			<div class="container">
+				<div class="row">
+
+					<!-- Logo -->
+					<div class="col-lg-4 col-sm-3 col-3 order-1">
+						<div class="logo_container">
+							<div class="logo"><a href="{{ homepage_url }}"><img src="{% static "oscar/eyy.png" %}" alt=""></a></div>
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+						</div>
+					</div>
+
+                    <div class="col-lg-5 col-5 order-lg-2 order-3 text-lg-left text-right">
+						<div class="header_search">
+							<div class="header_search_content">
+								<div class="header_search_form_container">
+									<form method="get" action="{% url 'search:search' %}" class="header_search_form clearfix">
+                                            {{ search_form.q }}
+
+										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="{% static "oscar/search.png" %}" alt=""></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- Wishlist -->
+					<div class="col-lg-3 col-12 order-lg-3 order-2 text-lg-left text-right">
+						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">{% comment %}
+							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+								<div class="wishlist_icon"><img src="{% static "oscar/heart.png" %}" alt=""></div>
+								<div class="wishlist_content">
+									<div class="wishlist_text"><a href="#">Wishlist</a></div>
+                                    <div class="wishlist_count">855</div>
+								</div>
+							</div>{% endcomment %}
+
+							<!-- Cart -->
+                        <div class="cart">
+								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
+									<div class="cart_icon"><a  href="{% url 'customer:wishlists-list' %}">
+                                        <img src="{% static "moi/images/heart.png" %}" alt=""></a>
+									</div>
+									<div class="cart_content">
+										<div class="cart_text"><a href="{% url 'customer:wishlists-list' %}">Wishlist</a></div>
+										<div class="cart_price">
+                                            {{ wishlists.count }}
+                                        </div>
+									</div>
+								</div>
+							</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+							<div class="cart">
+								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
+									<div class="cart_icon"><a  href="{% url 'basket:summary' %}">
+                                        <img src="{% static "moi/images/cart.png" %}" alt=""></a>
+										<div class="cart_count"><span>{{ request.basket.num_items }}</span></div>
+									</div>
+									<div class="cart_content">
+										<div class="cart_text"><a href="{% url 'basket:summary' %}">Panier</a></div>
+										<div class="cart_price">
+                                            {% if request.basket.is_tax_known %}
+                                              {{ request.basket.total_incl_tax|currency:request.basket.currency }}
+                                            {% else %}
+                                                {{ request.basket.total_excl_tax|currency:request.basket.currency }}
+                                            {% endif %}
+                                        </div>
+									</div>
+								</div>
+							</div>
+
+</div>
+
+
+					</div>
+
+						</div>
+					</div>
+				</div>
+
+
+

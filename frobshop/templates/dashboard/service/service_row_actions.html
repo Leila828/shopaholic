@@ -1,0 +1,21 @@
+{% load django_tables2 %}
+{% load i18n %}
+<div class="btn-toolbar">
+    <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
+            {% trans "Actions" %}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">
+            <li>
+                <a href="{% url 'Service:service_edit' record.id %}{% querystring %}">{% trans "Edit" %}</a>
+            </li>
+            <li>
+                <a href="{% url 'service:detail' record.id %}"> {% trans "View on site" %}</a>
+            </li>
+            <li>
+                <a href="{% url 'Service:service_delete' record.id %}">{% trans "Delete" %}</a>
+            </li>
+        </ul>
+    </div>
+</div>

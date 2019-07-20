@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+<<<<<<< HEAD
+{% load i18n %}
+{% load static %}
+
+
+    <script src="{% url 'https://code.jquery.com/jquery-3.3.1.slim.min.js' %}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="{% url 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' %}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="{% url 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' %}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% block content %}
+<div class="container">
+        <div class="jumbotron">
+          <H1 style="position: absolute; top: 20px;left: 500px; font-size: 18px;
+=======
+{% load static %}
+{% load i18n %}
+<link rel="stylesheet" href="{% static "://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"%}" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style media="screen">
+
+      .sub-title {
+    font-size: 18px;
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+    line-height: 22px;
+    text-align: center;
+    font-weight: 400;
+    color: #70294f;
+    padding-left: 2%;
+<<<<<<< HEAD
+" > ETAPES A SUIVRE !!</H1>
+          <img src="{% static 'images/boutique/secure.png' %}" alt ="hh" style="height: 150px;  width: 150px;" >
+          <H2 class="txt1" style="position: absolute; top: 60px; left: 350px; color: #70294f;">Etape 1: rejoindre shopaholic</H2>
+          <p class="txt1" style="position: absolute; top: 90px; left: 350px;width: 400px; height: 100px;">-- Inscrivez-vous en 5 minutes.
+            <br>- Remplissez le formulaire d’inscription.</p>
+
+              <img src="{% static 'images/boutique/155749538100417002.gif' %}" alt ="hh"  style="position: absolute; top: 200px;left: 51px; height: 150px;  width: 150px;">
+            <H2 class="txt1" style="position: absolute; top: 190px; left: 350px; color:  #70294f;">Etape 2: remplissez votre boutique</H2>
+            <p class="txt1"style="position: absolute; top: 220px; left: 350px;">- - Gérez votre boutique.
+              <br>
+              - Ajoutez votre e-articles</p>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <br>
+              <img src="{% static 'images/boutique/155749532357943645.gif' %}" alt ="hh" style="position: absolute; top: 360px; height: 150px;  width: 150px;">
+              <H2 class="txt1" style="position: absolute; top: 360px; left: 350px; color:  #70294f;">Etape 3: vendez vos produits</H2>
+              <p class="txt1" style="position: absolute; top: 390px; left: 350px;">- Créez un maximum de produits pour augmenter vos ventes <br> et devenez un richard avec shopaholic .
+
+=======
+
+}
+.btn{background-color: #70294f;
+    color: #fff;
+   border: none;
+   font: 500 16px/36px sans-serif;
+    position: absolute; top: 96%;
+  left: 40%;
+   cursor: pointer;
+   border-radius: 5px;}
+.btn:hover{ color: #70294f;
+background-color: #fff;}
+</style>
+
+
+
+
+
+
+
+{% block content%}
+      <div class="container">
+
+        <div class="jumbotron">
+          <p  class="sub-title" style="position: absolute; top: 20px;left: 500px;" > Comment faire ?</p>
+          <img src="{{  "C:\Users\pc\Desktop\fatna\secure.png "}} "  style="height: 150px;  width: 150px;" alt="">
+          <p class="txt1" style="position: absolute; top: 60px; left: 350px;width: 400px; height: 100px; color: #70294f;">Etape 1: Inscrivez-vous en 5 minutes</p>
+          <p class="txt1" style="position: absolute; top: 90px; left: 350px;width: 400px; height: 100px;">- Remplissez le formulaire d’inscription.
+            <br>- Attachez votre RIB Bancaire.
+            <br>- Lisez et approuvez notre e-contrat.</p>
+            <br>
+            <img src="{{ "C:\Users\pc\Desktop\fatna\155749532357943645.gif" }}" style="position: absolute; top: 200px; height: 150px;  width: 150px;" alt="">
+            <p class="txt1" style="position: absolute; top: 230px; left: 350px; color:  #70294f;">Etape 2: Devenez un expert du e-commerce</p>
+            <p class="txt1" style="position: absolute; top: 260px; left: 350px;" >- Visualisez nos formations pour les nouveaux vendeurs et apprenez à vendre en ligne.
+              <br>
+              - Activez votre compte Seller Center et gérez votre boutique en ligne.</p>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <br>
+              <img src= "{% static "moi\images\155749532357943645.gif" %}" style="position: absolute; top: 360px; height: 150px;  width: 150px;" alt="">
+              <p class="txt1" style="position: absolute; top: 390px; left: 350px; color:  #70294f;">Etape 3: Créez vos produits et vendez</p>
+              <p class="txt1" style="position: absolute; top: 420px; left: 350px;">- Créez un maximum de produits pour augmenter vos ventes .
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914
+        </div>
+
+      </div>
+
+<<<<<<< HEAD
+              <button type="button" style="background-color: #70294f;
+
+   border: none;
+   font: 500 16px/36px sans-serif;
+    position: absolute; top: 96%;
+  left: 40%;
+   cursor: pointer;
+   border-radius: 5px;}
+.btn:hover{ color: #70294f;
+background-color: #ffffff ;}" ><a style="color: white" href="{% url 'form:index' %}">commencez a vendre maintenant</a></button>
+
+
+
+{% endblock content %}
+=======
+              <button type="button" class="btn"  >commencez a vendre maintenat</button>
+
+
+
+    <script src="{{ "https://code.jquery.com/jquery-3.3.1.slim.min.js" }}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="{{  "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"}}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="{{   "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" }}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  {% endblock content %}
+
+
+
+
+>>>>>>> d4078a1c350d5d663218bd294360be25f29db914

@@ -1,0 +1,28 @@
+{% load currency_filters %}
+{% load i18n %}
+{% load static %}
+  {% comment %} <span>
+        <a  href="{% url 'basket:summary' %}"><img src="{% static "oscar/panier2.png" %}" alt=""> </a>
+       <!-- <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right">
+            <li>{% include "basket/partials/basket_quick.html" %}</li>
+        </ul>-->
+    </span>&nbsp&nbsp
+   <strong> {% trans "Voir le Panier" %}</strong>
+
+
+    {% if request.basket.is_tax_known %}
+        {{ request.basket.total_incl_tax|currency:request.basket.currency }}
+    {% else %}
+        {{ request.basket.total_excl_tax|currency:request.basket.currency }}
+    {% endif %}
+
+
+
+<br/>
+<br/>
+ <a  href="{% url 'basket:summary' %}"><img src="{% static "oscar/coeur.png" %}" alt=""> </a> &nbsp
+    <strong>{% trans "Liste des envies" %}</strong>{% endcomment %}
+</div>

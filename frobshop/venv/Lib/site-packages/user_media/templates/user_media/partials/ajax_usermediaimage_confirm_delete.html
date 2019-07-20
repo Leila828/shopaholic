@@ -1,0 +1,11 @@
+{% load i18n thumbnail %}
+<p>{% trans "Are you sure you want to delete this image?" %}</p>
+<img src="{% thumbnail object.image 200x200 crop %}" alt="" />
+<form method="post" action=".">
+    <fieldset>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <input type="submit" value="{% trans "Delete image" %}" />
+        <a href="{{ next }}">{% trans "Cancel" %}</a>
+    </fieldset>
+</form>

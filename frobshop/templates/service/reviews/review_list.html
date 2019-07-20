@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% load history_tags %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "All reviews" %} | {{ service.name }} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+        </li>
+        {% with category=service.category %}
+                <li>
+                    <a href="#">{{ category.name }}</a>
+                </li>
+            <li>
+                <a href="#">{{ service.name }}</a>
+            </li>
+            <li>
+                <a href="#">{% trans "Reviews" %}</a>
+            </li>
+        {% endwith %}
+        <li class="active">{{ review.title }}</li>
+    </ul>
+{% endblock %}
+
+{% block headertext %}
+    {% trans "Customer reviews" %}
+{% endblock  %}
+
+{% block content %}
+
+    <section>        
+        {% include 'service/reviews/review_product.html' %}
+
+        {% if reviews %}
+            {% for review in reviews %}
+                {% include 'service/partials/review.html' %}
+            {% endfor %}
+            {% include 'partials/pagination.html' %}
+
+        {% else %}
+            <p>{% trans "This product does not have any reviews yet." %}</p>
+        {% endif %}
+
+    </section>
+{% endblock %}
